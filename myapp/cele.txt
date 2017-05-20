@@ -1,0 +1,28 @@
+13.03.2017:
+tager - lematyzowanie (usuwanie końcówek), oraz tagowanie wyrazów (rzeczownik, przymiotnik) - Morfeusz
+text -> base -> wyrzucenie spójników (tego co się umówimy)
+
+REST API ! http://ws.clarin-pl.eu/tager.shtml
+
+następne spotkanie:
+* propozycja kamieni milowych
+* PoC skryptu pobierającego plik -> przetworzenie przez clarin -> złożenie teskstu (rzeczowniki + czasowniki + przymiotniki) -> gensim
+
+* ma być tworzony model
+* i coś takiego http://ws.clarin-pl.eu/w2vdemo.shtml
+* jak nie zabić systemu (?)
+* system kolejek (rabbit ?)
+
+---------------------------------
+20.03.2017
+pierwszy - najlepszy przy lematyzowaniu tekstu
+wybieramy rzeczownik, czasownik, przymiotnik, ...
+
+1) przychodzi człowiek z tekstami (korpusem, np w zipie). Wrzuca na serwer i idzie spać. Notyfikujemy go że skończyliśmy -> dostaje nazwę modelu i możliwość ściągnięcia.
+
+2) może użytkownik załadować model z nazwy (to co stworzyliśmy) i może się nim pobawić:
+	* klikadełko podobieństwa
+	* lista podobieństw słów do danego słowa lub zestawu (do 10 podobieństw) np csv 
+	"słowo; podobieństwo słowa; podobieństwo liczbowe\npies; kot; 0.99"
+	* wrzuca listę par słów i dostaje podobieństwa (liczby)
+	* lista wszytskich słów z modelu

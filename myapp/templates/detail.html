@@ -1,0 +1,16 @@
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body background="https://wallpaperscraft.com/image/athabasca_glacier_canada_mountains_115257_1920x1200.jpg">
+		
+
+<h1> <center> <a href="/media/{{ documents.docfile.name }}"> Pobierz Model </a> </center> </h1>
+<form action="/myapp/model/" method="post">
+{% csrf_token %}
+<p> <center> <input type="submit" value="UŻYJ MODELU"> </center> </p>
+
+</form>
+
+</body>

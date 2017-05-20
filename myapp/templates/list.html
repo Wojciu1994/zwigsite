@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ładowanie plików</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+
+    <body background="https://wallpaperscraft.com/image/athabasca_glacier_canada_mountains_115257_1920x1200.jpg">
+        {% if documents %}
+        <h4>Lista wrzuconych na serwer plików:</h4>
+            <ul>
+                {% for document in documents %}
+                    <li>{{"nazwa pliku :   "}}<a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a>{{"     id = "}}{{ document.id }}</li> 
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Brak dokumentów.</p>
+        {% endif %}
+
+        <form action="{% url "list" %}" method="post" enctype="multipart/form-data" id="form1">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <h4>Wybierz pliki, z których chcesz stworzyć model:</h4>
+            <p>{{ form.docfile }}</p>
+
+            <p><input type="submit" value="Wgraj pliki na serwer"/></p>
+        </form>
+
+
+        <form method="post" action="/{{documents.id}}"  id="form2">
+        {% csrf_token %}
+            <h4> Wpisz swój adres email:</h4>
+            <input name="email" id="mail" value="osoba@domena.com" />
+        
+
+        <h4>Wybierz indeks pliku, który chcesz użyć do stworzenia modelu:</h4>
+
+            <select name="nazwa" id="ident">
+            {% if documents %}
+
+            {% for document in documents %}
+
+            <option>{{document.id}}</option>
+            
+            {% endfor %}
+            </select>
+
+            {% endif %}
+            
+        <p><input type="submit" value="Przetwarzanie"/></p>
+		</form>
+            
+    </body>
+
+</html>
