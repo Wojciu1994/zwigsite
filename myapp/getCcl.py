@@ -1,7 +1,6 @@
 #!/usr/bin/python2.7
 
-import json
-import urllib2
+import json, urllib2
 import glob, os
 import time
 import zipfile
